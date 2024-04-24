@@ -1,8 +1,7 @@
 import profilePic from "../assets/raccoon-icon.jpg"
 import chitter from "../assets/chitter.mp3"
 
-function RaccoonCard({ raccoon, audioOn }) {
-// function RaccoonCard({ audioOn }) {
+function RaccoonCard({ audioOn }) {
 
     function handlePlayAudio() {
         if (audioOn) {
@@ -16,10 +15,8 @@ function RaccoonCard({ raccoon, audioOn }) {
             <img src={ raccoon.img_url || profilePic } alt="raccoon headshot" />
 
             <div>
-                <p className="bold">{raccoon.name}</p>
-                {/* <p className="bold">raccoon.name</p> */}
-                <p>{raccoon.location}</p>
-                {/* <p>raccoon.location</p> */}
+                <p className="bold">raccoon.name</p>
+                <p>raccoon.location</p>
             </div>
 
         </div>
