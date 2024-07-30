@@ -1,6 +1,6 @@
 # Phase 2 Raccoon Saloon Debugging Practice
 
-A raccoon built this website but unfortunately for them their tiny paws often make mistakes on the keyboard. Your task is to go through the code already built and fix the mistakes you make using your React and debugging knowledge.
+A raccoon built this website but unfortunately for them their tiny paws often make mistakes on the keyboard. Your task is to go through the code already built and fix the mistakes they made using your React and debugging knowledge.
 
 ## Getting Started
 
