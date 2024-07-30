@@ -27,7 +27,7 @@ http://localhost:5555/raccoons
 
 ## Deliverables
 
-Fix all the bugs! There are at least _ bugs to be found. Your task isn't complete until everything has been tested and no error messages appear in the dev console.
+Fix all the bugs! There are at least 18 bugs to be found. Your task isn't complete until everything has been tested and no error messages appear in the dev console.
 
 You will only need to fix errors in these files (errors are estimates):
 
