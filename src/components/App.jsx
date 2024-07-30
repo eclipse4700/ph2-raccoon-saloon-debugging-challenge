@@ -7,15 +7,15 @@ function App() {
   const [ lightMode, setLightMode ] = useState( false )
   const [ audioOn, setAudioOn ] = useState( true )
 
-  const [ raccoonsArr, setRaccoonsArr ] = useState( '' )
+  const [ raccoonsArr, setRaccoonsArr ] = useState( [] )
 
-  function handleLightModeClick(event) {
-    setLightMode( lightMode )
+  function handleLightModeClick() {
+    setLightMode( !lightMode )
   }
 
   useEffect( () => {
 
-    fetch("http://localhost:5555/racons")
+    fetch("http://localhost:5555/raccoons")
     .then( res => {
       if (res.ok) {
         return res.json()
@@ -27,6 +27,21 @@ function App() {
     .catch(err => alert(err))
 
   }, [])
+
+  function handleDeleteRaccoon(raccoonId) {
+    fetch(`http://localhost:5555/raccoons/${raccoonId}`, {
+      method: "DELETE",
+    })
+    .then(res => {
+      if (res.ok) {
+        setRaccoonsArr(prevRaccoons => prevRaccoons.filter(raccoon => raccoon.id !== raccoonId));
+      } else {
+        throw new Error('Unable to delete raccoon!');
+      }
+    })
+    .catch(err => alert(`Error: ${err.message}`));
+  }
+
 
   return (
     <div className={lightMode ? "App lightmode" : "App darkmode"}>
@@ -55,7 +70,10 @@ function App() {
 
         <RaccoonsContainer raccoonsArr={raccoonsArr} audioOn={audioOn} />
 
-        <RaccoonForm raccoonsArr={raccoonsArr} />
+        <RaccoonForm raccoonsArr={raccoonsArr} 
+        setRaccoonsArr={setRaccoonsArr}
+        onDeleteRaccoon={handleDeleteRaccoon}  
+        />
 
       </main>
 

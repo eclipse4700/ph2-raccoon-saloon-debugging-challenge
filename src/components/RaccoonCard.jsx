@@ -1,7 +1,7 @@
 import profilePic from "../assets/raccoon-icon.jpg"
 import chitter from "../assets/chitter.mp3"
 
-function RaccoonCard({ audioOn }) {
+function RaccoonCard({ raccoon, audioOn, onDeleteRaccoon }) {
 
     function handlePlayAudio() {
         if (audioOn) {
@@ -15,9 +15,19 @@ function RaccoonCard({ audioOn }) {
             <img src={ raccoon.img_url || profilePic } alt="raccoon headshot" />
 
             <div>
-                <p className="bold">raccoon.name</p>
-                <p>raccoon.location</p>
+                <p className="bold">{raccoon.name}</p>
+                <p>{raccoon.location}</p>
             </div>
+
+            <button 
+                className="delete-button" 
+                onClick={(e) => {
+                    e.stopPropagation(); 
+                    onDeleteRaccoon(raccoon.id);
+                }}
+            >
+                Delete
+            </button>
 
         </div>
     )
